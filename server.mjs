@@ -68,12 +68,6 @@ async function handleEvent(event) {
     }
   }
 
-  // 「応答生成中...」をすぐに返す
-  await client.replyMessage({
-    replyToken: event.replyToken,
-    messages: [{ type: "text", text: "応答生成中..." }],
-  });
-
   // グループ名とユーザー名を取得
   const [groupSummary, memberProfile] = await Promise.all([
     client.getGroupSummary(groupId).catch(() => null),
